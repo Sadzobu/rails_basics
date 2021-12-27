@@ -23,7 +23,7 @@ questions = Question.create!([{ body: 'Ruby 0 0 question', tests_id: tests[0].id
                                { body: 'Python 1 2 question', tests_id: tests[3].id },
                                { body: 'HTML 1 0 question', tests_id: tests[4].id }])
 
-answers = Answer.create!([{ body: 'Ruby 0 0 correct answer', correct: true, questions_id: questions[0].id },
+Answer.create!([{ body: 'Ruby 0 0 correct answer', correct: true, questions_id: questions[0].id },
                            { body: 'Ruby 0 0 correct answer', correct: true, questions_id: questions[0].id },
                            { body: 'Ruby 1 1 correct answer', correct: true, questions_id: questions[1].id },
                            { body: 'Ruby 1 1 correct answer', correct: true, questions_id: questions[1].id },
@@ -37,3 +37,11 @@ answers = Answer.create!([{ body: 'Ruby 0 0 correct answer', correct: true, ques
                            { body: 'Python 0 0 incorrect answer', correct: false, questions_id: questions[2].id },
                            { body: 'Python 1 2 incorrect answer', correct: false, questions_id: questions[3].id },
                            { body: 'HTML 1 0 incorrect answer', correct: false, questions_id: questions[4].id }])
+
+TestCompletion.create!([{ users_id: users[2].id, tests_id: tests[1].id },
+                        { users_id: users[2].id, tests_id: tests[2].id },
+                        { users_id: users[2].id, tests_id: tests[3].id },
+                        { users_id: users[3].id, tests_id: tests[4].id },
+                        { users_id: users[3].id, tests_id: tests[0].id },
+                        { users_id: users[3].id, tests_id: tests[1].id },
+                        { users_id: users[3].id, tests_id: tests[2].id }])
