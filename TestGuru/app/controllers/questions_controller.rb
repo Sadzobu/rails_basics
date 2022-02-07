@@ -15,12 +15,17 @@ class QuestionsController < ApplicationController
   def new; end
 
   def create
-    @test.questions.create!(question_params)
-    redirect_to action: 'index'
+    question = @test.questions.new(question_params)
+    if question.save
+      redirect_to action: 'index', notice: 'Question was successfully created!'
+    else
+      redirect_to action: 'new', notice: 'Question was not created!'
+    end
   end
 
   def destroy
-    @question.destroy!
+    @question.destroy
+    redirect_to action: 'index', notice: 'Question was destroyed!'
   end
 
   private
