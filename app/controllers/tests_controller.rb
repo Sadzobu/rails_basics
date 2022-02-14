@@ -9,6 +9,7 @@ class TestsController < ApplicationController
   end
 
   def new
+    @test = Test.new
   end
 
   def create
@@ -21,6 +22,7 @@ class TestsController < ApplicationController
   end
 
   def edit
+    @test = Test.find(params[:id])
   end
 
   def update
@@ -43,6 +45,6 @@ class TestsController < ApplicationController
   private
 
   def test_params
-    params.require(:test).permit(:title, :level)
+    params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 end
