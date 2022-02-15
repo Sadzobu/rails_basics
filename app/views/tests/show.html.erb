@@ -1,23 +1,23 @@
 <h1><%= @test.title %></h1>
 <h2>Questions:</h2>
 <table>
-	<tr>
-		<th>Body</th>
-		<th colspan="3"> Actions</th>
-	</tr>
+  <tr>
+  <th>Body</th>
+  <th colspan="3"> Actions</th>
+  </tr>
 
 
-	<% @test.questions.each do |question| %>
-		<tr>
-			<td><%= question.body %></td>
-			<td><%= link_to 'Show', question_path(question)%></td>
-			<td><%= link_to 'Edit', edit_question_path(question)%></td>
-			<td><%= link_to 'Delete', question_path(question),
-								  	  method: :delete,
-								  	  data: { confirm: 'Are you sure?' } %>
-			</td>
-		</tr>
-	<% end%>
+  <% @test.questions.each do |question| %>
+  <tr>
+    <td><%= question.body %></td>
+    <td><%= link_to 'Show', question_path(question)%></td>
+    <td><%= link_to 'Edit', edit_question_path(question)%></td>
+    <td><%= link_to 'Delete', question_path(question),
+                              method: :delete,
+                              data: { confirm: 'Are you sure?' } %>
+    </td>
+  </tr>
+  <% end%>
 </table>
 
 <p><%= link_to 'Create new question',  "#{@test.id}/questions/new" %></p>
