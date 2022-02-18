@@ -1,2 +1,9 @@
-<p><%= @question.body %></p>
-<td><%= link_to 'Back', test_path(@question.test)%></td>
+<h2><%= @question.body %></h2>
+
+<h2>Answers</h2>
+
+<table>
+<%= render @question.answers %>
+</table>
+
+<p><%= link_to 'Back', test_path(@question.test)%></p>
