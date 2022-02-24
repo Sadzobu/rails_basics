@@ -4,6 +4,8 @@
   <%= @test_completion.current_question.body %>
 </b>
 
+<b><%= @test_completion.current_question_number %> / <%= @test_completion.current_test_questions_count %></b>
+
 <%= form_with url: test_completion_path(@test_completion), local: true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @test_completion.current_question.answers, :id, :body, include_hidden: false do |b| %>
     <p>

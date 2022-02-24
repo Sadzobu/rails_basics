@@ -3,8 +3,7 @@ class AnswersController < ApplicationController
   before_action :find_question, only: %i[new create]
   before_action :find_answer, only: %i[show edit update destroy]
 
-  def show
-  end
+  def show; end
 
   def new
     @answer = @question.answers.new
@@ -12,15 +11,14 @@ class AnswersController < ApplicationController
 
   def create
     @answer = @question.answers.new(answer_params)
-    if @answer.save 
+    if @answer.save
       redirect_to @answer
     else
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @answer.update(answer_params)

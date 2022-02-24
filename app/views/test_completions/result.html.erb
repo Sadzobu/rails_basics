@@ -1,1 +1,11 @@
 <h2>The <%= @test_completion.test.title %> test was completed!</h2>
+
+<p>
+<% if @test_completion.success? %>
+  Test was passed! Your score is <span style="color: green;"><%= @test_completion.result %>%</span>
+<% else %>
+  Test was not passed! Your score is <span style="color: red;"><%= @test_completion.result %>%</span>
+<% end%>
+</p>
+
+<p><%= link_to 'Index', tests_path %></p>

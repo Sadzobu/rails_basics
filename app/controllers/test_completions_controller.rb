@@ -1,12 +1,9 @@
 class TestCompletionsController < ApplicationController
-
   before_action :find_test_completion, only: %i[show update result]
-  
-  def show
-  end
 
-  def result
-  end
+  def show; end
+
+  def result; end
 
   def update
     @test_completion.accept!(params[:answer_ids])
