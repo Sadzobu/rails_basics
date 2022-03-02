@@ -5,8 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user!
-    session[:return_to] = request.fullpath
-    redirect_to login_path unless current_user
+    save_path and redirect_to login_path unless current_user
   end
 
   def current_user
@@ -15,5 +14,9 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     current_user.present?
+  end
+
+  def save_path
+    session[:return_to] = request.fullpath
   end
 end
