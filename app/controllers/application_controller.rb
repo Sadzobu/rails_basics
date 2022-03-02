@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user!
+    session[:return_to] = request.fullpath
     redirect_to login_path unless current_user
   end
 
