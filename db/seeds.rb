@@ -11,10 +11,10 @@ categories = Category.create!([{ title: 'Backend' },
                                { title: 'Frontend' },
                                { title: 'Machine Learning' }])
 
-users = User.create!([{ name: 'Admin_1', email: 'admin_1@ya.ru' },
-                      { name: 'Admin_2', email: 'admin_2@ya.ru' },
-                      { name: 'User_1', email: 'user_1@ya.ru' },
-                      { name: 'User_2', email: 'user_2@ya.ru' }])
+users = User.create!([{ name: 'Admin_1', email: 'admin_1@ya.ru', password: '123' },
+                      { name: 'Admin_2', email: 'admin_2@ya.ru', password: '123' },
+                      { name: 'User_1', email: 'user_1@ya.ru', password: '123' },
+                      { name: 'User_2', email: 'user_2@ya.ru', password: '123' }])
 
 tests = Test.create!([{ title: 'R', level: 0, category: categories[0], author: users[0] },
                       { title: 'B1', level: 1, category: categories[1], author: users[0] },
@@ -45,10 +45,10 @@ Answer.create!([{ body: 'Ruby 0 0 correct answer', correct: true, question: ques
                 { body: 'Python 1 2 incorrect answer', correct: false, question: questions[5] },
                 { body: 'HTML 1 0 incorrect answer', correct: false, question: questions[6] }])
 
-TestCompletion.create!([{ user: users[2], test: tests[1] },
-                        { user: users[2], test: tests[2] },
-                        { user: users[2], test: tests[3] },
-                        { user: users[3], test: tests[4] },
-                        { user: users[3], test: tests[0] },
-                        { user: users[3], test: tests[1] },
-                        { user: users[3], test: tests[2] }] )
+TestCompletion.create!([{ user: users[2], test: tests[1],  current_question_id: tests[1].questions.first },
+                        { user: users[2], test: tests[2],  current_question_id: tests[2].questions.first },
+                        { user: users[2], test: tests[3],  current_question_id: tests[3].questions.first },
+                        { user: users[3], test: tests[4],  current_question_id: tests[4].questions.first },
+                        { user: users[3], test: tests[0],  current_question_id: tests[0].questions.first },
+                        { user: users[3], test: tests[1],  current_question_id: tests[1].questions.first },
+                        { user: users[3], test: tests[2],  current_question_id: tests[2].questions.first }])
