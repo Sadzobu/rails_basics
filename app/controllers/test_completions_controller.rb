@@ -1,4 +1,5 @@
 class TestCompletionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_test_completion, only: %i[show update result]
 
   def show; end
