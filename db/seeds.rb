@@ -11,10 +11,10 @@ categories = Category.create!([{ title: 'Backend' },
                                { title: 'Frontend' },
                                { title: 'Machine Learning' }])
 
-users = User.create!([{ name: 'Admin_1', email: 'admin_1@ya.ru', password: '123' },
-                      { name: 'Admin_2', email: 'admin_2@ya.ru', password: '123' },
-                      { name: 'User_1', email: 'user_1@ya.ru', password: '123' },
-                      { name: 'User_2', email: 'user_2@ya.ru', password: '123' }])
+users = User.create!([{ name: 'Admin_1', email: 'admin_1@ya.ru', password: '123456' },
+                      { name: 'Admin_2', email: 'admin_2@ya.ru', password: '123456' },
+                      { name: 'User_1', email: 'user_1@ya.ru', password: '123456' },
+                      { name: 'User_2', email: 'user_2@ya.ru', password: '123456' }])
 
 tests = Test.create!([{ title: 'R', level: 0, category: categories[0], author: users[0] },
                       { title: 'B1', level: 1, category: categories[1], author: users[0] },
