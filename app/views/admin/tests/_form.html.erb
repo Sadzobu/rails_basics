@@ -1,6 +1,6 @@
 <h2> <%= test_header(@test) %> </h2>
 
-<%= form_with model: @test, local: true do |form| %>
+<%= form_with model: [:admin, @test], local: true do |form| %>
   <%= render 'shared/errors', resources: @test %>
 
   <p>
@@ -22,4 +22,4 @@
 <% end %>
 
 
-<td><%= link_to 'Back', tests_path %></td>
+<td><%= link_to 'Back', admin_tests_path %></td>
