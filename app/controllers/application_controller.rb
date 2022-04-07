@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    greet_user(current_user)
-    current_user.is_a?(Admin) ? admin_tests_path : stored_location_for(resource)
+    greet_user(resource)
+    resource.admin? ? admin_tests_path : stored_location_for(resource)
   end
 
   def configure_permitted_parameters
