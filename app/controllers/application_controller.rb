@@ -1,22 +1,20 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user
-  helper_method :logged_in?
+  protect_from_forgery with: :exception
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def after_sign_in_path_for(resource)
+    greet_user(resource)
+    resource.admin? ? admin_tests_path : stored_location_for(resource)
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name last_name])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[name last_name])
+  end
 
   private
 
-  def authenticate_user!
-    save_path and redirect_to login_path unless current_user
-  end
-
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
-
-  def logged_in?
-    current_user.present?
-  end
-
-  def save_path
-    session[:return_to] = request.fullpath
+  def greet_user(user)
+    flash.notice = "Hello, #{user.name} #{user.last_name}!" unless user.name.empty? && user.last_name.empty?
   end
 end

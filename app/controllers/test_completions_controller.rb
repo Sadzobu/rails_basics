@@ -8,7 +8,9 @@ class TestCompletionsController < ApplicationController
 
   def update
     @test_completion.accept!(params[:answer_ids])
+
     if @test_completion.completed?
+      TestsMailer.completed_test(@test_completion).deliver_now
       redirect_to result_test_completion_path(@test_completion)
     else
       render :show

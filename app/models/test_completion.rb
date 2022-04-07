@@ -3,7 +3,7 @@ class TestCompletion < ApplicationRecord
 
   belongs_to :test
   belongs_to :user
-  belongs_to :current_question, class_name: 'Question', optional: true
+  belongs_to :current_question, class_name: "Question", optional: true
 
   before_validation :before_validation_set_current_question
 
@@ -50,7 +50,7 @@ class TestCompletion < ApplicationRecord
     if current_question.nil?
       test.questions.order(:id).first
     else
-      test.questions.order(:id).where('id > ?', current_question.id).first
+      test.questions.order(:id).where("id > ?", current_question.id).first
     end
   end
 end
