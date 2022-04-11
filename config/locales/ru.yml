@@ -1,0 +1,63 @@
+ru:
+  activerecord:
+    models:
+      test: "Тест"
+    attributes:
+      test:
+        title: "Название"
+        level: "Сложность"
+        category_id: "Раздел"
+
+  actions:
+    show: "Показать"
+    edit: "Редактировать"
+    delete: "Удалить"
+    back: "Назад"
+
+  helper:
+    create_test: "Создать тест"
+    edit_test: "Редактировать тест"
+
+  shared:
+    topnav:
+      greetings: "Добро пожаловать, %{name} Гуру!"
+      logout: "Выйти"
+      sign_in: "Войти"
+      sign_up: "Зарегистрироваться"
+
+  tests:
+    test:
+      start: "Начать"
+    index:
+      header: "Доступные тесты"
+      title: "Название"
+      level: "Сложность"
+      questions: "Вопросы"
+      actions: "Действия"
+
+  admin:
+    tests:
+      index:
+        header: "Тесты"
+        new_test: "Новый тест"
+        title: "Название"
+        level: "Сложность"
+        questions: "Вопросы"
+        actions: "Действия"
+      form:
+        back: "Назад"
+      show:
+        header: "Вопросы"
+        new_question: "Новый вопрос"
+        actions: "Действия"
+        body: "Текст"
+
+  helpers:
+    select:
+      prompt: "Выберите"
+
+    submit:
+      create: "Создать %{model}"
+      update: "Обновить %{model}"
+
+        
