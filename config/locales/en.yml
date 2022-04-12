@@ -1,15 +1,83 @@
 en:
+  activerecord:
+    models:
+      test: "Test"
+    attributes:
+      test:
+        title: "Title"
+        level: "Level"
+        category: "Category"
+        category_id: "Category"
+    errors:
+      models:
+        test:
+          blank: "can't be blank"
+          greater_than_or_equal_to: "must be greater or equal to %{count}"
+          required: "must exist"
+
   actions:
     show: "Show"
     edit: "Edit"
     delete: "Delete"
     back: "Back"
+
+  helper:
+    create_test: "Create test"
+    edit_test: "Edit test"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+    topnav:
+      greetings: "Welcome, %{name} Guru!"
+      logout: "Logout"
+      sign_in: "Sign In"
+      sign_up: "Sign Up"
+
   tests:
     test:
       start: "Start"
     index:
       header: "Tricky tests"
+      title: "Title"
+      level: "Level"
+      questions: "Questions"
+      actions: "Actions"
+
+  test_completions:
+    result:
+      header: "%{title} test was completed!"
+      sucess: "Test was passed! Your score is"
+      failure: "Test was not passed! Your score is"
+      index: "Index"
+    show:
+      header: "Passing %{title} test"
+      next: "Next"
+
+
   admin:
     tests:
+      index:
+        header: "Tricky tests"
+        new_test: "New test"
+        title: "Title"
+        level: "Level"
+        questions: "Questions"
+        actions: "Actions"
       form:
         back: "Back"
+      show:
+        header: "Questions"
+        new_question: "New question"
+        actions: "Actions"
+        body: "Body"
+
+  helpers:
+    select:
+      prompt: "Choose"
+
+    submit:
+      create: "Create %{model}"
+      update: "Update %{model}"
