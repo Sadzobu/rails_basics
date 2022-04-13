@@ -1,12 +1,12 @@
 <% if user_signed_in? %>
   <p>
     <td><%= link_to 'Test Guru', tests_path %></td><br>
-    <td>Welcome, <%= current_user.name %> Guru</td><br>
-    <td><%= link_to 'Logout', destroy_user_session_path, method: :delete %></td>
+    <td><%= t('.greetings', name: current_user.name) %></td><br>
+    <td><%= link_to t('.logout'), destroy_user_session_path, method: :delete %></td>
   </p>
 <% else %>
   <p>
-    <td><%= link_to 'Log In', new_user_session_path %></td><br>
-    <td><%= link_to 'Sign Up', new_user_registration_path %></td>
+    <td><%= link_to t('.log_in'), new_user_session_path %></td><br>
+    <td><%= link_to t('.sign_up'), new_user_registration_path %></td>
   </p>
 <% end %>

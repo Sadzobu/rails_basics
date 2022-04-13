@@ -1,11 +1,15 @@
-<h2>The <%= @test_completion.test.title %> test was completed!</h2>
+<h2><%= t('.header', title: @test_completion.test.title) %></h2>
 
 <p>
 <% if @test_completion.success? %>
-  Test was passed! Your score is <span style="color: green;"><%= @test_completion.result %>%</span>
+  <div><%= t('.sucess') %>
+  <span style="color: green;"><%= @test_completion.result %></span>
+  </div>
 <% else %>
-  Test was not passed! Your score is <span style="color: red;"><%= @test_completion.result %>%</span>
+  <div><%= t('.failure') %>
+  <span style="color: red;"><%= @test_completion.result %></span>
+  </div>
 <% end%>
 </p>
 
-<p><%= link_to 'Index', tests_path %></p>
+<p><%= link_to t('.index'), tests_path %></p>
