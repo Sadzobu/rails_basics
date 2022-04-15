@@ -1,12 +1,24 @@
-<% if user_signed_in? %>
-  <p>
-    <td><%= link_to 'Test Guru', tests_path %></td><br>
-    <td><%= t('.greetings', name: current_user.name) %></td><br>
-    <td><%= link_to t('.logout'), destroy_user_session_path, method: :delete %></td>
-  </p>
-<% else %>
-  <p>
-    <td><%= link_to t('.log_in'), new_user_session_path %></td><br>
-    <td><%= link_to t('.sign_up'), new_user_registration_path %></td>
-  </p>
-<% end %>
+<nav class="navbar navbar-light bg-light">
+  <span>
+    <%= link_to 'Test Guru', tests_path, class: 'navbar-brand'%>
+    <% if user_signed_in? %>
+      <%= link_to "Admin Panel", admin_tests_path, class: 'navbar-text' if current_user.admin? %>
+    <% end %>
+  </span>
+  <span class="navbar-text">
+    <% if user_signed_in? %>
+      <p>
+        <%= t('.greetings', name: current_user.name) %> |
+        <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
+      </p>
+    <% else %>
+      <p>
+        <%= link_to t('.sign_in'), new_user_session_path %> |
+        <%= link_to t('.sign_up'), new_user_registration_path %>
+      </p>
+    <% end %>
+  </span>
+  
+</nav>
+
+
