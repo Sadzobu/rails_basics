@@ -55,6 +55,9 @@ en:
     show:
       header: "Passing %{title} test"
       next: "Next"
+    gist:
+      success: "Gist was successfully created!"
+      failure: "An error occured while saving gist!"
 
 
   admin:

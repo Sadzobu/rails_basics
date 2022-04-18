@@ -57,6 +57,9 @@ ru:
     show:
       header: "Прохождение теста %{title}"
       next: "Далее"
+    gist:
+      success: "Gist пешно сохранен!"
+      failure: "Во время сохранения gist произошла ошибка!"
 
   admin:
     tests:
