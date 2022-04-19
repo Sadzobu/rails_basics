@@ -1,0 +1,5 @@
+<tr>
+  <td style="text-align: center;"><%= link_to gist_question(gist), admin_question_path(gist.question) %></td>
+  <td style="text-align: center;"><%= gist.author.email %></td>
+  <td style="text-align: center;"><%= link_to gist_hash(gist), gist.url %></td>
+</tr>
