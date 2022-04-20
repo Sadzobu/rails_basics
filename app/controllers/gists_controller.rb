@@ -1,9 +1,6 @@
-class Admin::GistsController < Admin::BaseController
+class GistsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_test_completion, only: %i[create]
-
-  def index
-    @gists = Gist.all
-  end
 
   def create
     result = GistQuestionService.new(@test_completion.current_question).call

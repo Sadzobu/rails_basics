@@ -56,6 +56,11 @@ en:
       header: "Passing %{title} test"
       next: "Next"
 
+  gists:
+      create:
+        success: " was successfully created!"
+        failure: "An error occured while saving gist!"
+
 
   admin:
     tests:

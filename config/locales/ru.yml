@@ -58,6 +58,12 @@ ru:
       header: "Прохождение теста %{title}"
       next: "Далее"
 
+  gists:
+      create:
+        success: " успешно сохранен!"
+        failure: "Во время сохранения gist произошла ошибка!"
+
+
   admin:
     tests:
       index:
