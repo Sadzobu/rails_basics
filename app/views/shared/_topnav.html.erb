@@ -3,6 +3,7 @@
     <%= link_to 'Test Guru', tests_path, class: 'navbar-brand'%>
     <% if user_signed_in? %>
       <%= link_to "Admin Panel", admin_tests_path, class: 'navbar-text' if current_user.admin? %>
+      <%= link_to "Gists", admin_gists_path, class: 'navbar-text' if current_user.admin? %>
     <% end %>
   </span>
   <span class="navbar-text">

@@ -56,6 +56,11 @@ en:
       header: "Passing %{title} test"
       next: "Next"
 
+  gists:
+      create:
+        success: " was successfully created!"
+        failure: "An error occured while saving gist!"
+
 
   admin:
     tests:
@@ -73,6 +78,16 @@ en:
         new_question: "New question"
         actions: "Actions"
         body: "Body"
+    gists:
+      index:
+        header: "Created gists"
+        question: "Question"
+        author: "Author"
+        url: "URL"
+      create:
+        success: " was successfully created!"
+        failure: "An error occured while saving gist!"
+
 
   helpers:
     select:
@@ -81,3 +96,6 @@ en:
     submit:
       create: "Create %{model}"
       update: "Update %{model}"
+
+  gist_question_service:
+    description: "A question about %{title} from TestGuru"

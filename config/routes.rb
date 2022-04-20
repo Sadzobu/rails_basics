@@ -15,11 +15,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :gists, only: %i[create]
+
   namespace :admin do
     resources :tests do
       resources :questions, except: :index, shallow: true do
         resources :answers, except: :index, shallow: true
       end
     end
+    resources :gists, only: %i[index]
   end
 end

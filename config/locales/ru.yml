@@ -58,6 +58,12 @@ ru:
       header: "Прохождение теста %{title}"
       next: "Далее"
 
+  gists:
+      create:
+        success: " успешно сохранен!"
+        failure: "Во время сохранения gist произошла ошибка!"
+
+
   admin:
     tests:
       index:
@@ -74,6 +80,15 @@ ru:
         new_question: "Новый вопрос"
         actions: "Действия"
         body: "Текст"
+    gists:
+      index:
+        header: "Созданные Gist"
+        question: "Вопрос"
+        author: "Автор"
+        url: "URL"
+      create:
+        success: " успешно сохранен!"
+        failure: "Во время сохранения gist произошла ошибка!"
 
   helpers:
     select:
@@ -83,4 +98,6 @@ ru:
       create: "Создать %{model}"
       update: "Обновить %{model}"
 
+  gist_question_service:
+    description: "Вопрос из теста %{title} от ТестГуру"
         
