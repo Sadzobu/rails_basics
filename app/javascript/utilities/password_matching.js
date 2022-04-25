@@ -8,14 +8,15 @@ document.addEventListener('turbolinks:load', function () {
 function checkPasswords() {
   var password = document.getElementById('user_password').value
   var passwordConfirmation = document.getElementById('user_password_confirmation').value
-  if (passwordConfirmation != '') {
-    if (password == passwordConfirmation) {
-    passwordCorrectIcon()
-    } else {
-    passwordIncorrectIcon()
-    }
-  } else {
+
+  if (passwordConfirmation == '') {
     hideIcons()
+  }
+
+  if (password == passwordConfirmation) {
+    passwordCorrectIcon()
+  } else {
+    passwordIncorrectIcon()
   }
 }
 
