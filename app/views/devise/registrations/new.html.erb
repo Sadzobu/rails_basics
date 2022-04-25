@@ -26,7 +26,9 @@
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
+  <div class="field password_matching">
+    <%= octicon 'lock', class: 'text-success hide' %>
+    <%= octicon 'unlock', class: 'text-danger hide' %>
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
