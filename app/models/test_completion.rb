@@ -24,6 +24,10 @@ class TestCompletion < ApplicationRecord
     test.questions.count
   end
 
+  def current_progress
+    ((current_question_number.to_f - 1) / current_test_questions_count * 100).floor
+  end
+
   def result
     (correct_questions.to_f / current_test_questions_count * 100).round(2)
   end

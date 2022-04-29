@@ -6,7 +6,7 @@
   </p>
 
   <div class="progress">
-    <%= content_tag :div, "", class: "progress-bar", role: "progressbar", style: "width: 0%", data: {progress: current_progress(@test_completion)} %>
+    <%= content_tag :div, "", class: "progress-bar", role: "progressbar", style: "width: 0%", data: { progress: @test_completion.current_progress } %>
   </div>
 
   <div class="mt-1">
