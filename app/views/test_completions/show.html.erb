@@ -1,19 +1,28 @@
-<h1><%= t('.header', title: @test_completion.test.title) %></h1>
+<div class="container">
+  <h1><%= t('.header', title: @test_completion.test.title) %></h1>
 
-<p>
-  <b><%= @test_completion.current_question.body %></b>
-</p>
+  <p>
+    <b><%= @test_completion.current_question.body %></b>
+  </p>
 
-<b><%= @test_completion.current_question_number %> / <%= @test_completion.current_test_questions_count %></b>
+  <div class="progress">
+    <%= content_tag :div, "", class: "progress-bar", role: "progressbar", style: "width: 0%", data: { progress: @test_completion.current_progress } %>
+  </div>
 
-<%= form_with url: test_completion_path(@test_completion), local: true, method: :put do |form| %>
-  <%= form.collection_check_boxes :answer_ids, @test_completion.current_question.answers, :id, :body, include_hidden: false do |b| %>
-    <p>
-      <%= b.check_box id: "answer_ids_#{b.object.id}" %>
-      <%= b.label %>
-    </p>
-  <% end %>
+  <div class="mt-1">
+  <%= form_with url: test_completion_path(@test_completion), local: true, method: :put do |form| %>
+    <%= form.collection_check_boxes :answer_ids, @test_completion.current_question.answers, :id, :body, include_hidden: false do |b| %>
+      <p>
+        <%= b.check_box id: "answer_ids_#{b.object.id}" %>
+        <%= b.label %>
+      </p>
+    <% end %>
+  </div>
 
-  <p><%= link_to 'Gist Question', gists_path(id: @test_completion), method: :post %></p>
-  <p><%= form.submit t('.next') %></p>
-<% end%>
+    <div class="mt-1">
+      <p><%= link_to 'Gist Question', gists_path(id: @test_completion), method: :post %></p>
+      <p><%= form.submit t('.next'), class: "btn btn-primary" %></p>
+    </div>
+  <% end%>
+</div>
+

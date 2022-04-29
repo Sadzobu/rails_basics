@@ -80,6 +80,8 @@ ru:
         new_question: "Новый вопрос"
         actions: "Действия"
         body: "Текст"
+      form_inline:
+        submit: "ОК"
     gists:
       index:
         header: "Созданные Gist"
