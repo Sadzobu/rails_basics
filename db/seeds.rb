@@ -1,7 +1,7 @@
 categories = Category.create!([{ title: "Backend" },
                                { title: "Frontend" }])
 
-users = User.create!([{ name: "Kao", last_name: "Kage", email: "admin_1@ya.ru", password: "123456", type: "Admin" }])
+users = User.create!([{ name: "Kao", last_name: "Kage", email: "kaonokage@gmail.com", password: "123456", type: "Admin" }])
 
 tests = Test.create!([{ title: "Ruby", level: 1, category: categories[0], author: users[0] },
                       { title: "HTML", level: 0, category: categories[1], author: users[0] }])
