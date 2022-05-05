@@ -7,8 +7,12 @@ class TestsController < ApplicationController
   end
 
   def start
-    current_user.tests.push(@test)
-    redirect_to current_user.test_completion(@test)
+    if @test.questions.empty?
+      redirect_to tests_path, { alert: "#{@test.title} is empty!" }
+    else
+      current_user.tests.push(@test)
+      redirect_to current_user.test_completion(@test)
+    end
   end
 
   private

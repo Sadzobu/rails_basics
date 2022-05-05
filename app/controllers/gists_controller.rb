@@ -18,6 +18,14 @@ class GistsController < ApplicationController
 
   private
 
+  def gist_url(result)
+    result.resource["html_url"]
+  end
+
+  def gist_link(result)
+    view_context.link_to("Gist", gist_url(result)).to_s
+  end
+
   def find_test_completion
     @test_completion = TestCompletion.find(params[:id])
   end
