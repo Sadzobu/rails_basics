@@ -3,16 +3,12 @@ class TestsController < ApplicationController
   before_action :find_test, only: %i[start]
 
   def index
-    @tests = Test.all
+    @tests = Test.ready
   end
 
   def start
-    if @test.questions.empty?
-      redirect_to tests_path, { alert: "#{@test.title} is empty!" }
-    else
-      current_user.tests.push(@test)
-      redirect_to current_user.test_completion(@test)
-    end
+    current_user.tests.push(@test)
+    redirect_to current_user.test_completion(@test)
   end
 
   private
