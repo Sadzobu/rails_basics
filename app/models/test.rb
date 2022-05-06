@@ -14,6 +14,7 @@ class Test < ApplicationRecord
   scope :easy, -> { by_level(0..1) }
   scope :medium, -> { by_level(2..4) }
   scope :hard, -> { by_level(5..Float::INFINITY) }
+  scope :ready, -> { where(ready: true) }
 
   def self.tests_by_category_title_desc(title)
     by_category(title).order(title: :desc).pluck(:title)

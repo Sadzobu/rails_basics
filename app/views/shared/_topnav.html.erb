@@ -1,25 +1,25 @@
-<nav class="navbar navbar-light bg-light">
-  <span>
-    <%= link_to 'Test Guru', tests_path, class: 'navbar-brand'%>
-    <% if user_signed_in? %>
-      <%= link_to "Admin Panel", admin_tests_path, class: 'navbar-text' if current_user.admin? %>
-      <%= link_to "Gists", admin_gists_path, class: 'navbar-text' if current_user.admin? %>
-    <% end %>
-  </span>
-  <span class="navbar-text">
-    <% if user_signed_in? %>
-      <p>
-        <%= t('.greetings', name: current_user.name) %> |
-        <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
-      </p>
-    <% else %>
-      <p>
-        <%= link_to t('.sign_in'), new_user_session_path %> |
-        <%= link_to t('.sign_up'), new_user_registration_path %>
-      </p>
-    <% end %>
-  </span>
-  
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <%= link_to 'Test Guru', tests_path, class: 'navbar-brand'%>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav mr-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item"><%= link_to "Admin Panel", admin_tests_path, class: 'nav-link' if current_user.admin? %></li>
+          <li class="nav-item"><%= link_to "Gists", admin_gists_path, class: 'nav-link' if current_user.admin? %></li>
+          <li class="nav-item"><%= link_to "Give feedback", new_feedback_path, class: 'nav-link' unless current_user.admin? %></li>    
+        <% end %>
+      </ul>
+    </div>
+    <ul class="nav navbar-nav navbar-right mr-auto">
+      <% if user_signed_in? %>
+        <li class="navbar-text"><%= t('.greetings', name: current_user.name) %></li>
+        <li class="nav-item"><%= link_to t('.logout'), destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
+      <% else %>
+        <li class="nav-item"><%= link_to t('.sign_in'), new_user_session_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to t('.sign_up'), new_user_registration_path, class: 'nav-link' %></li>
+      <% end %>
+    </ul>
+  </div>
 </nav>
-
-
