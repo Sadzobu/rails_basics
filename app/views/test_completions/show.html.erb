@@ -24,5 +24,8 @@
       <p><%= form.submit t('.next'), class: "btn btn-primary" %></p>
     </div>
   <% end%>
+
+  <%= content_tag :div, "Time left:", class: "timer", data: { deadline: @test_completion.deadline.to_s } %>
+  <div class="time_left"></div>
 </div>
 
