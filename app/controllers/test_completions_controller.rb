@@ -7,13 +7,17 @@ class TestCompletionsController < ApplicationController
   def result; end
 
   def update
-    @test_completion.accept!(params[:answer_ids])
-
-    if @test_completion.completed?
-      TestsMailer.completed_test(@test_completion).deliver_now
-      redirect_to result_test_completion_path(@test_completion)
+    if @test_completion.time_is_up?
+      redirect_to tests_path, alert: 'Your time is up!' 
     else
-      render :show
+      @test_completion.accept!(params[:answer_ids])
+      
+      if @test_completion.completed?
+        TestsMailer.completed_test(@test_completion).deliver_now
+        redirect_to result_test_completion_path(@test_completion)
+      else
+        render :show
+      end
     end
   end
 

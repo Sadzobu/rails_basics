@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 2022_05_18_115756) do
     t.bigint "test_id", null: false
     t.bigint "current_question_id"
     t.integer "correct_questions", default: 0
-    t.datetime "deadline"
     t.index ["current_question_id"], name: "index_test_completions_on_current_question_id"
     t.index ["test_id"], name: "index_test_completions_on_test_id"
     t.index ["user_id"], name: "index_test_completions_on_user_id"

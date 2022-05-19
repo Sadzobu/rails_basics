@@ -7,10 +7,12 @@ class TestCompletion < ApplicationRecord
 
   before_validation :before_validation_set_current_question
 
-  before_create :before_create_set_time_limit
-
   def completed?
-    current_question.nil? || Time.current >= deadline
+    current_question.nil?
+  end
+
+  def time_is_up?
+    Time.current >= deadline unless deadline.nil?
   end
 
   def accept!(answer_ids)
@@ -38,18 +40,18 @@ class TestCompletion < ApplicationRecord
     result >= SUCCESS_THRESHOLD
   end
 
+  def deadline
+    self.test.time_limit.nil? ? nil : created_at + time_limit_seconds
+  end
+
   private
-
-  def before_create_set_time_limit
-    self.deadline = test_deadline unless test.time_limit.nil?
-  end
-
-  def test_deadline
-    Time.current + (test.time_limit.hour * 3600) + (test.time_limit.min * 60)
-  end
 
   def before_validation_set_current_question
     self.current_question = next_question
+  end
+
+  def time_limit_seconds
+    (self.test.time_limit.hour * 3600) + (self.test.time_limit.min * 60)
   end
 
   def correct_answer?(answer_ids)

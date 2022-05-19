@@ -8,7 +8,12 @@ document.addEventListener('turbolinks:load', function () {
 })
 
 function createTimer(timer) {
-  setInterval(updateTimer, 1000, timer)
+  const duration = timeLeft(timer.dataset.deadline)
+
+  if (duration) {
+    timer.classList.remove('hide')
+    setInterval(updateTimer, 1000, timer)
+  }
 }
 
 function updateTimer(timer) {
