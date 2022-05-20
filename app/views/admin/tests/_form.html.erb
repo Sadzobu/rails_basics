@@ -23,6 +23,12 @@
     <%= form.check_box :ready %>
   </p>
 
+  <p>
+    <%= form.label :time_limit %><br>
+    <%= form.time_select :time_limit, minute_step: 1 %>
+  </p>
+
+
   <p><%= form.submit %></p>
 <% end %>
 
