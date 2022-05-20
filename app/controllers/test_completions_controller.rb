@@ -8,7 +8,7 @@ class TestCompletionsController < ApplicationController
 
   def update
     if @test_completion.time_is_up?
-      redirect_to tests_path, alert: 'Your time is up!' 
+      redirect_to result_test_completion_path(@test_completion), alert: 'Your time is up!' 
     else
       @test_completion.accept!(params[:answer_ids])
       

@@ -37,7 +37,7 @@ class TestCompletion < ApplicationRecord
   end
 
   def success?
-    result >= SUCCESS_THRESHOLD
+    result >= SUCCESS_THRESHOLD and !time_is_up?
   end
 
   def deadline
