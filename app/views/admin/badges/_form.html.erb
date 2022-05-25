@@ -13,6 +13,11 @@
     <%= form.select :rule, options_for_select(Badge.rules.map {|key, value| [key.titleize, Badge.rules.key(value)]}, @badge.rule) %>
   </p>
 
+  <p>
+    <%= form.label :rule_value %><br>
+    <%= form.text_field :rule_value %>
+  </p>
+
   <p><%= form.submit %></p>
 <% end %>
 

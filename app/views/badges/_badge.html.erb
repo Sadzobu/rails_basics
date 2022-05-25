@@ -4,8 +4,4 @@
   <td class="align-middle"><%= badge.rule %></td>
   <td class="align-middle"><%= badge.author.name %></td>
   <td class="align-middle"><%= status(badge) %></td>
-  <td><%= link_to 'Delete', admin_badge_path(badge),
-                            method: :delete,
-                            data: { confirm: 'Are you sure?' } %></td>
-  </td>
 </tr>
