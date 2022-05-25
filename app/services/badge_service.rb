@@ -4,6 +4,7 @@ class BadgeService
     @test_completion = test_completion
     @test = @test_completion.test
     @user = @test_completion.user
+    @awarded = false
   end
 
   def award(badge)
@@ -15,6 +16,10 @@ class BadgeService
     Badge.all.each do |badge|
       award(badge) if eligible?(badge)
     end
+  end
+
+  def awarded?
+    @awarded
   end
 
   private
