@@ -1,6 +1,4 @@
 class Badge < ApplicationRecord
-  belongs_to :author, class_name: "User"
-
   has_many :badge_receiptions, dependent: :destroy
   has_many :users, through: :badge_receiptions
 
@@ -8,5 +6,4 @@ class Badge < ApplicationRecord
   validates :rule, presence: true
 
   enum rule: { all_in_level: 0, all_in_category: 1, first_time: 2 }
-
 end

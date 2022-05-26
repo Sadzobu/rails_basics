@@ -40,8 +40,6 @@ ActiveRecord::Schema.define(version: 2022_05_25_110632) do
     t.string "rule_value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "author_id", null: false
-    t.index ["author_id"], name: "index_badges_on_author_id"
     t.index ["name"], name: "index_badges_on_name", unique: true
   end
 
@@ -125,7 +123,6 @@ ActiveRecord::Schema.define(version: 2022_05_25_110632) do
   add_foreign_key "answers", "questions"
   add_foreign_key "badge_receiptions", "badges"
   add_foreign_key "badge_receiptions", "users"
-  add_foreign_key "badges", "users", column: "author_id"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users", column: "author_id"
   add_foreign_key "questions", "tests"

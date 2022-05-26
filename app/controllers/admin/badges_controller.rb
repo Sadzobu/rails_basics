@@ -9,7 +9,7 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def create
-    @badge = current_user.created_badges.new(badge_params)
+    @badge = Badge.new(badge_params)
     if @badge.save
       redirect_to admin_badges_path
     else

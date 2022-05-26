@@ -5,10 +5,9 @@ class CreateBadges < ActiveRecord::Migration[6.1]
       t.string :filename
       t.integer :rule, null: false
       t.string :rule_value
+      t.index :name, unique: true
 
       t.timestamps
     end
-  add_index :badges, :name, unique: true
-  add_reference :badges, :author, null: false, foreign_key: { to_table: :users }
   end
 end
