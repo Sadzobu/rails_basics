@@ -16,7 +16,7 @@ class TestCompletionsController < ApplicationController
         @test_completion.score!
         TestsMailer.completed_test(@test_completion).deliver_now
         new_badges = BadgeService.new(@test_completion).call if @test_completion.success?
-        flash_options = { notice: 'You got a new badge' } unless new_badges.empty?
+        flash_options = new_badges.present? ? { notice: 'You got a new badge' } : {}
     
         redirect_to result_test_completion_path(@test_completion), flash_options
       else
