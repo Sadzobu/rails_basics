@@ -8,7 +8,12 @@
         <% if user_signed_in? %>
           <li class="nav-item"><%= link_to "Admin Panel", admin_tests_path, class: 'nav-link' if current_user.admin? %></li>
           <li class="nav-item"><%= link_to "Gists", admin_gists_path, class: 'nav-link' if current_user.admin? %></li>
-          <li class="nav-item"><%= link_to "Give feedback", new_feedback_path, class: 'nav-link' unless current_user.admin? %></li>    
+          <li class="nav-item"><%= link_to "Give feedback", new_feedback_path, class: 'nav-link' unless current_user.admin? %></li>
+          <% if current_user.admin? %>
+            <li class="nav-item"><%= link_to "Badges", admin_badges_path, class: 'nav-link'  %></li>    
+          <% else %>
+            <li class="nav-item"><%= link_to "Badges", badges_path, class: 'nav-link'  %></li>    
+          <% end %>  
         <% end %>
       </ul>
     </div>

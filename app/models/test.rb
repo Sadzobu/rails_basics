@@ -19,4 +19,5 @@ class Test < ApplicationRecord
   def self.tests_by_category_title_desc(title)
     by_category(title).order(title: :desc).pluck(:title)
   end
+
 end

@@ -7,12 +7,14 @@ class TestCompletion < ApplicationRecord
 
   before_validation :before_validation_set_current_question
 
+  scope :passed, -> { where(passed: true) }
+
   def completed?
     current_question.nil?
   end
 
   def time_is_up?
-    Time.current >= deadline unless deadline.nil?
+    deadline.nil? ? false : Time.current >= deadline
   end
 
   def accept!(answer_ids)
@@ -42,6 +44,11 @@ class TestCompletion < ApplicationRecord
 
   def deadline
     self.test.time_limit.nil? ? nil : created_at + time_limit_seconds
+  end
+
+  def score!
+    self.passed = success?
+    save
   end
 
   private

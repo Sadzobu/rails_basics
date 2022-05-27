@@ -11,10 +11,14 @@ class TestCompletionsController < ApplicationController
       redirect_to result_test_completion_path(@test_completion), alert: 'Your time is up!' 
     else
       @test_completion.accept!(params[:answer_ids])
-      
+
       if @test_completion.completed?
+        @test_completion.score!
         TestsMailer.completed_test(@test_completion).deliver_now
-        redirect_to result_test_completion_path(@test_completion)
+        new_badges = BadgeService.new(@test_completion).call if @test_completion.success?
+        flash_options = new_badges.present? ? { notice: 'You got a new badge' } : {}
+    
+        redirect_to result_test_completion_path(@test_completion), flash_options
       else
         render :show
       end

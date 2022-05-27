@@ -1,0 +1,25 @@
+<h2> Create badge </h2>
+
+<%= form_with model: [:admin, @badge], local: true do |form| %>
+  <%= render 'shared/errors', resources: @badge %>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :rule %><br>
+    <%= form.select :rule, options_for_select(Badge.rules.map {|key, value| [key.titleize, Badge.rules.key(value)]}, @badge.rule) %>
+  </p>
+
+  <p>
+    <%= form.label :rule_value %><br>
+    <%= form.text_field :rule_value %>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>
+
+
+<td><%= link_to 'Back', admin_badges_path %></td>
