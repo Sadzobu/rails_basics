@@ -7,6 +7,8 @@ class TestCompletion < ApplicationRecord
 
   before_validation :before_validation_set_current_question
 
+  scope :passed, -> { where(passed: true) }
+
   def completed?
     current_question.nil?
   end

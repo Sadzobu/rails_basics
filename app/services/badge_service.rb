@@ -26,33 +26,30 @@ class BadgeService
   end
 
   def passed_all_in_level_rule?(level)
-    number_of_tests_in_level = Test.by_level(level).count
+    tests_in_level = Test.by_level(level)
+    number_of_tests_in_level = tests_in_level.count
 
-    TestCompletion.where(passed: true)
+    TestCompletion.passed
                   .where(user_id: @user.id)
-                  .joins(:test)
-                  .where(tests: { level: level })
+                  .where(test_id: tests_in_level)
                   .uniq
                   .count == number_of_tests_in_level
   end
 
   def passed_all_in_category_rule?(category)
-    number_of_tests_in_category = Test.by_category(category).count
-    category_id = Category.find_by(title: category).id
+    tests_in_category = Test.by_category(category)
+    number_of_tests_in_category = tests_in_category.count
 
-    TestCompletion.where(passed: true)
+    TestCompletion.passed
                   .where(user_id: @user.id)
-                  .joins(:test)
-                  .where(tests: { category_id: category_id })
+                  .where(test_id: tests_in_category)
                   .uniq
                   .count == number_of_tests_in_category
   end
 
   def passed_first_time_rule?(id)
     TestCompletion.where(user_id: @user.id)
-                  .joins(:test)
-                  .where(tests: { id: id })
+                  .where(test_id: id)
                   .count == 1
   end
-
 end

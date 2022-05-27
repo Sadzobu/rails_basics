@@ -20,7 +20,4 @@ class Test < ApplicationRecord
     by_category(title).order(title: :desc).pluck(:title)
   end
 
-  def passed?
-    test_completions.any?(&:passed)
-  end
 end
